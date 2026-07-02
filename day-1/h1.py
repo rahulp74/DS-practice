@@ -3,38 +3,24 @@ numbered 0–7. Each slot holds one product. The warehouse manager needs to:
 check what's at a slot, find a product, update a slot, and check if the belt is full.
 The conveyor belt — fixed 8 slots"""
 
-size=8
-p_list=[]
+belt = [None] * 8
 
-def push(product):
-    if len(p_list)==size:
-        print("Belt is Full")
-    else:
-        p_list.append(product)
-        print(f"{product} is add..")
-        
-def peek():
-    if p_list:
-        print(f"top product {p_list[0]}")
-    else:
-        print("Belt is empty")
-        
-def update(product):
-    if p_list:
-        p_list[0]=product
-        print("top product updated")
-        print(p_list)
-    else:
-        print("Belt is empty")
-    
-def is_full():
-    if len(p_list)==size:
-        print("Belt is Full")
-    else:
-        
-        print("space is available")
-push('laptop')
-push("phone")
-peek()
-update('table')
-is_full()
+belt[0] = "desktop"
+belt[1] = "keybord"
+belt[2] = "ddr3ram"
+
+print("Slot 1:", belt[1])
+
+product = "keyboard"
+if product in belt:
+    print(product, "found at slot", belt.index(product))
+else:
+    print(product, "not found")
+
+belt[1] = "ddr3ram"
+print("Updated Belt:", belt)
+
+if None in belt:
+    print("Belt is not full")
+else:
+    print("Belt is full")
