@@ -23,4 +23,4 @@ print("Updated Belt:", belt)
 if None in belt:
     print("Belt is not full")
 else:
-    print("Belt is full")
+    print("Belt is full")  

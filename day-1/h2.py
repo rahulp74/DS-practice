@@ -1,59 +1,66 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul  1 19:27:19 2026
-
-@author: windows 10
-"""
-
+# H2) Toll Plaza Simulation (Circular Queue)
+# A toll plaza has a fixed capacity of 5 vehicles.
+# If full, new vehicles must wait.
+# Implement a Circular Queue to simulate this, since it reuses empty slots without wasting memory.
 size = 5
-q = [None] * size
-f = -1
-r = -1
-def enq(vehicle):
-    global f, r
-    if (r + 1) % size == f:
-        print("tol full")
+queue = [None] * size
+front = -1
+rear = -1
+
+def enqueue(vehicle):
+    global front, rear
+
+    if (rear + 1) % size == front:
+        print("Toll Plaza is Full")
         return
 
-    if f == -1:
-        f = r = 0
+    if front == -1:
+        front = rear = 0
     else:
-        r = (r + 1) % size
+        rear = (rear + 1) % size
 
-    q[r] = vehicle
-    print(vehicle, "entered.")
+    queue[rear] = vehicle
+    print(vehicle, "entered")
 
-def deq():
-    global f, r
-
-    if f == -1:
-        print("tol Empty")
+def dequeue():
+    global front, rear
+    if front == -1:
+        print("Toll Plaza is Empty")
         return
 
-    print(q[f], "left.")
+    print(queue[front], "left")
+    queue[front] = None
 
-    if f == r:
-        f = r = -1
+    if front == rear:
+        front = rear = -1
     else:
-        f = (f + 1) % size
+        front = (front + 1) % size
 
-def dis():
-    if f == -1:
-        print("tol Empty")
+def display():
+    if front == -1:
+        print("Empty")
         return
 
-    print("Vehicles:",end='')
-    i = f
+    i = front
     while True:
-        print(q[i], end=" ")
-        if i == r:
+        print(queue[i], end=" ")
+        if i == rear:
             break
         i = (i + 1) % size
     print()
 
-enq("Car")
-enq("Bus")
-enq("Truck")
-dis()
-deq()
-dis()
+enqueue("Car")
+enqueue("Bus")
+enqueue("Truck")
+enqueue("Bike")
+enqueue("Van")
+
+display()
+
+dequeue()
+dequeue()
+
+enqueue("Taxi")
+enqueue("Auto")
+
+display()

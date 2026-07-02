@@ -1,36 +1,37 @@
-b = []
-f = []
-cur = "Home"
+"""The GPS Navigation System (Backtracking)
+You're building a GPS app like Google Maps for a hiking trail.
+The hiker moves through checkpoints.
+If they take a wrong turn, they hit "Go Back" to return to the previous checkpoint.
+But once they go back, they can also "Go Forward" if they change their mind again—just like a browser's back/forward buttons.
+Operations:
+• visit(place) — move to a new place
+• back() — go to previous place
+• forward() — go forward if available"""
+back = []
+forward = []
+current = "Home"
 
-def visit(place):
-    global cur
-    b.append(cur)
-    cur = place
-    f.clear()
-    print("cur Location:", cur)
+# Visit
+back.append(current)
+current = "A"
+back.append(current)
+current = "B"
+back.append(current)
+current = "C"
 
-def back():
-    global cur
-    if not b:
-        print("No Previous Location")
-    else:
-        f.append(cur)
-        cur = b.pop()
-        print("cur Location:", cur)
+print(current)
 
-def forward():
-    global cur
-    if not f:
-        print("No Forward Location")
-    else:
-        b.append(cur)
-        cur = f.pop()
-        print("cur Location:", cur)
+# Back
+forward.append(current)
+current = back.pop()
+print(current)
 
-visit("Mall")
-visit("Hospital")
-visit("Airport")
+# Back
+forward.append(current)
+current = back.pop()
+print(current)
 
-back()
-back()
-forward()
+# Forward
+back.append(current)
+current = forward.pop()
+print(current)
