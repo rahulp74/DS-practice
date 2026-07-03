@@ -2,15 +2,15 @@
 # A cybersecurity intern at a startup is building a basic spam filter.
 # Incoming emails are checked against a blacklist of known spam sender IDs.
 # The blacklist has no order.
-blacklisters=["nnicrosoft@gmail.com","lotus365@gmail.com","1xbet@gmail.com"]
+blacklist=["nnicrosoft@gmail.com","lotus65@gmail.com","1x@gmail.com"]
 mailid=input()
-flag=False
-for i in  blacklisters:
-    if mailid in blacklisters:
-        flag=True
+f=False
+for i in  blacklist:
+    if mailid in blacklist:
+        f=True
         break
 
-if flag==True:
+if f==True:
     print("this is a spam mail")
 else:
     print("mail is not a spam")
