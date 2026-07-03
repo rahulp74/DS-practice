@@ -49,9 +49,9 @@ def display():
         i = (i + 1) % size
     print()
 
-enqueue("Car")
+enqueue("bmw")
 enqueue("Bus")
-enqueue("Truck")
+enqueue("volvo")
 enqueue("Bike")
 enqueue("Van")
 
