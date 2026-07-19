@@ -11,7 +11,7 @@ back = []
 forward = []
 current = "Home"
 
-# Visit
+
 back.append(current)
 current = "A"
 back.append(current)
@@ -21,17 +21,15 @@ current = "C"
 
 print(current)
 
-# Back
 forward.append(current)
 current = back.pop()
 print(current)
 
-# Back
 forward.append(current)
 current = back.pop()
 print(current)
 
-# Forward
+
 back.append(current)
 current = forward.pop()
 print(current)

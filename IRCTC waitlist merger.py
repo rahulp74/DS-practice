@@ -4,21 +4,22 @@ To produce a final unified waitlist, they don't re-sort from scratch.
 They merge both sorted lists in one pass — compare the front of each list, pick the smaller token,
  and advance.
 This is exactly merge sort's merge step."""
-list1 = [3, 5, 7, 12]
-list2 = [1, 8, 9, 13]
+l1 = [3, 5, 7, 12]
+l2 = [1, 8, 9, 13]
 
-i = j = 0
+i =0
+j = 0
 merged = []
 
-while i < len(list1) and j < len(list2):
-    if list1[i] < list2[j]:
-        merged.append(list1[i])
+while i < len(l1) and j < len(l2):
+    if l1[i] < l2[j]:
+        merg.append(l1[i])
         i += 1
     else:
-        merged.append(list2[j])
+        merg.append(l2[j])
         j += 1
 
-merged.extend(list1[i:])
-merged.extend(list2[j:])
+merg.extend(l1[i:])
+merg.extend(l2[j:])
 
-print(merged)
+print(merg)
